@@ -9,7 +9,7 @@
 #define SERVER_ADDR "\"192.168.1.7\""
 #define SERVER_PORT "5000"
 
-#define WAIT_ESP 500
+#define WAIT_ESP 4000
 
 bool ESP_connectWifi(const String &name, const String &pass);
 String ESP_responce(const String &command);

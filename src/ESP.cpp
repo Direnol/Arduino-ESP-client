@@ -18,7 +18,7 @@ void ESP_init()
 {
     ESP.begin(115200);
     ESP_clearbuf();
-    ESP_responce("AT+RST"); // reset ESP
+    Serial.println(ESP_responce("AT+RST")); // reset ESP
     ESP_responce("AT+RESTORE");
     ESP_responce("AT+CWMODE=1"); // connect as client
     ESP_responce("AT+CIPMODE=0");
@@ -44,6 +44,7 @@ bool ESP_send(const char *msg)
 {
     String com = "AT+CIPSEND=";
     com += String(strlen(msg));
+    ESP_responce(com);
     delay(WAIT_ESP);
     return ESP_responce(msg).indexOf("OK") >= 0;
 }
